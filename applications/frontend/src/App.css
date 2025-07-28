@@ -1,0 +1,145 @@
+.App {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 20px;
+}
+
+.App-header {
+  text-align: center;
+  color: white;
+  margin-bottom: 30px;
+}
+
+.App-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.loading {
+  text-align: center;
+  color: white;
+  font-size: 1.5rem;
+  margin-top: 50px;
+}
+
+.add-task-form {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+  gap: 10px;
+}
+
+.task-input {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 25px;
+  font-size: 16px;
+  width: 300px;
+  outline: none;
+}
+
+.add-button {
+  padding: 12px 25px;
+  background: #48bb78;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.add-button:hover {
+  background: #38a169;
+}
+
+.kanban-board {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.kanban-column {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.column-header {
+  text-align: center;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  font-weight: 600;
+  color: white;
+}
+
+.column-header.todo {
+  background: #ed8936;
+}
+
+.column-header.in-progress {
+  background: #4299e1;
+}
+
+.column-header.done {
+  background: #48bb78;
+}
+
+.task-list {
+  min-height: 200px;
+}
+
+.task-card {
+  background: white;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-left: 4px solid #667eea;
+}
+
+.task-card h4 {
+  margin-bottom: 10px;
+  color: #2d3748;
+}
+
+.task-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.status-select {
+  padding: 5px 10px;
+  border: 1px solid #e2e8f0;
+  border-radius: 5px;
+  background: white;
+  font-size: 14px;
+  flex: 1;
+}
+
+.delete-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 5px;
+  border-radius: 5px;
+  transition: background 0.2s;
+}
+
+.delete-button:hover {
+  background: #fed7d7;
+}
+
+.App-footer {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.8);
+  margin-top: 40px;
+  font-size: 14px;
+}

@@ -1,0 +1,37 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: postgres-init-script
+  namespace: task-board
+  labels:
+    app.kubernetes.io/name: postgres
+    app.kubernetes.io/component: database
+data:
+  init.sql: |
+    -- Create tasks table
+    CREATE TABLE IF NOT EXISTS tasks (
+        id SERIAL PRIMARY KEY,
+        title VARCHAR(255) NOT NULL,
+        status VARCHAR(20) DEFAULT 'todo',
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    );
+
+    -- Insert sample data
+    INSERT INTO tasks (title, status) VALUES
+    ('Setup DevOps Pipeline', 'in-progress'),
+    ('Deploy to Kubernetes', 'done'),
+    ('Setup Monitoring', 'todo'),
+    ('Configure ArgoCD', 'in-progress'),
+    ('Implement GitOps', 'todo'),
+    ('Security Scanning', 'todo');
+
+    -- Create indexes for better performance
+    CREATE INDEX idx_tasks_status ON tasks(status);
+    CREATE INDEX idx_tasks_created_at ON tasks(created_at);
+
+    -- Create a monitoring user (read-only)
+    CREATE USER monitoring WITH PASSWORD 'monitoring123';
+    GRANT CONNECT ON DATABASE taskboard TO monitoring;
+    GRANT USAGE ON SCHEMA public TO monitoring;
+    GRANT SELECT ON ALL TABLES IN SCHEMA public TO monitoring;
