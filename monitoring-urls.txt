@@ -1,0 +1,14 @@
+🌐 DevOps Showcase - Monitoring Stack Access
+============================================
+
+📈 Grafana Dashboard:    http://localhost:32499
+   Username: admin | Password: admin123
+   
+🔥 Prometheus Metrics:   http://localhost:30467
+🚨 AlertManager:         http://localhost:31280
+🔍 Jaeger Tracing:       http://localhost:
+
+🎯 Your Task Board App:
+   Frontend: http://localhost:30080
+   Backend:  http://localhost:30081
+   ArgoCD:   http://localhost:31105

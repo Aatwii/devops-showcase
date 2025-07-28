@@ -1,0 +1,19 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: task-board-metrics
+  namespace: monitoring
+  labels:
+    app: task-board
+    release: kube-prometheus-stack
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: backend
+  namespaceSelector:
+    matchNames:
+    - task-board
+  endpoints:
+  - port: http
+    path: /metrics
+    interval: 30s
